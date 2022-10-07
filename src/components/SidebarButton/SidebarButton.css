@@ -1,0 +1,26 @@
+div.sb__button .sb__button--text{
+    margin: 10px 0;
+    padding-left: 15px;
+    font-weight: light;
+    font-size: 1.25em;
+}
+i.sb-btn-icon{
+    font-size: 1.4em;
+}
+
+div.sb__button{
+    margin: 5px 0;
+    padding: 0 30px;
+    border-radius: 50px;
+    width: 230px;
+}
+
+div.sb__button--active p{
+    font-weight: bold;
+}
+
+div.sb__button:hover{
+    background-color: #f3f3f3;
+    transition: .3s;
+    cursor: pointer;
+}
