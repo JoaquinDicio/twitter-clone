@@ -1,0 +1,15 @@
+button.tweet-btn{
+    margin: 20px 10px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1em;
+    height: 50px;
+    background-color: rgb(29, 155, 240);
+    cursor: pointer;
+    color:#ffff;
+}
+button.tweet-btn:hover{
+    background-color: rgb(26, 137, 210);
+    transition: .2s;
+}
