@@ -5,6 +5,8 @@
     box-sizing: border-box;
 }
 div.app{
+    margin: 0 auto;
     display: flex;
-    justify-content: start;
+    align-content: center;
+    max-width: 1300px;
 }
