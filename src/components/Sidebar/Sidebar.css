@@ -2,4 +2,5 @@ div.sidebar{
     height: 100vh;
     padding: 50px 30px;
     max-width: 300px;
+    border-right: 1px solid rgb(230, 230, 230);
 }
