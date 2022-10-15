@@ -7,4 +7,6 @@
 div.app{
     display: flex;
     justify-content: start;
+    width: 1300px;
+    margin: 0 auto;
 }
