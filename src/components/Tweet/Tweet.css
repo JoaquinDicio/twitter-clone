@@ -1,0 +1,51 @@
+div.row.tweet{
+    margin: 0;
+}
+div.tweet{
+    padding: 15px 8px 15px 10px;
+    border-bottom:1px solid rgb(230, 230, 230);
+}
+div.tweet__footer{
+    margin-left: 5px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+div.tweet__footer div{
+    flex: .3;
+}
+i.interaction-icon{
+    cursor: pointer;
+    font-weight: light;
+    color: #959595;
+    padding: 5px;
+    border-radius: 50px;
+}
+i.share:hover,i.comment:hover{
+    color:rgb(29, 155, 240);
+    background-color:rgb(216, 233, 239);
+}
+i.fav:hover{
+    color:rgb(251, 60, 98);
+    background-color:rgb(245, 210, 217);
+}
+i.retweet:hover{
+    color:rgb(86, 202, 109);
+    background-color:rgb(202, 233, 207);
+}
+
+
+div.profile-icon-container{
+    width: 65px;
+}
+div.tweet img.profile-icon{
+    border-radius: 50%;
+    width: 50px;
+    margin-top: 5px;
+}
+.tweet__header h5{
+    font-size: 1.1em;
+}
+.tweet__header h5, .tweet__header p{
+    margin-bottom: 3px;
+    margin-left: 5px;
+}
