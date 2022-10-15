@@ -1,22 +1,44 @@
 div.tweetbox{
     border-bottom: 1px solid rgb(230, 230, 230);
 }
-
+/* profile icon */
 img.tweetbox__user-img{
     width: 70px;
     border-radius: 50%;
     margin: 0px 0px 13px 10px;
     padding: 5px;
 }
-input.tweetbox__input{
-    height: fit-content;
-    width: 500px;
-    padding-bottom:10px;
-    padding-left: 10px;
+/* tweetbox buttons and actions */
+div.tweetbox__actions{
+    padding: 10px 40px 10px 40px;
+    border-top:1px solid rgb(230, 230, 230);
+}
+i.tweetbox__img-icon{
+    font-size: 1.2em;
+    padding: 7px;
+    color: rgb(29, 155, 240);
+}
+i.tweetbox__img-icon:hover{
+   border-radius: 50px;
+   background-color:rgb(216, 233, 239);
+   cursor: pointer;
+}
+textarea.tweetbox__input{
+    resize: none;
+    padding:10px 15px 10px 10px ;
     min-height: 60px;
     border: none;
     margin: auto 0;
 }
-input.tweetbox__input:focus{
+textarea.tweetbox__input::-webkit-scrollbar{
+    display: none;
+}
+input.tweetbox__img-url{
+    border: none;
+    margin-right: 10px;
+    padding-bottom: 3px;
+    width: 90%;
+}
+input.tweetbox__img-url, textarea.tweetbox__input:focus{
      outline: none;
 }

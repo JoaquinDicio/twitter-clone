@@ -1,13 +1,19 @@
 button.tweet-btn{
-    margin: 20px 10px;
     border: none;
-    border-radius: 50px;
     font-weight: bold;
-    font-size: 1.1em;
-    height: 50px;
     background-color: rgb(29, 155, 240);
     cursor: pointer;
+    border-radius: 50px;
     color:#ffff;
+}
+button.tweetbox__tweet-btn{
+    padding: 6px 15px;
+}
+button.sb-tweet-btn{
+    width: 100%;
+    font-size: 1.1em;
+    height: 50px;
+    margin: 20px 10px;
 }
 button.tweet-btn:hover{
     background-color: rgb(26, 137, 210);

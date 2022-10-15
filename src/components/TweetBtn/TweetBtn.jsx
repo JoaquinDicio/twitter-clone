@@ -1,9 +1,9 @@
 import React from 'react'
 import './TweetBtn.css'
 
-export default function TweetBtn() {
+export default function TweetBtn({classBtn}) {
   return (
-    <button className='w-100 tweet-btn'>
+    <button className={`tweet-btn ${classBtn}`}>
         Twittear
     </button>
   )
