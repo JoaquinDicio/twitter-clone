@@ -1,0 +1,30 @@
+div.widgets{
+    background-color: blue;
+    min-width:350px;
+    width: 100%;
+    flex: .4;
+    height: 100vh;
+}
+div.widgets__header{
+    height: 55px;
+    background-color: #ffff;
+    width: 100%;
+}
+div.search-bar{
+    padding-left: 10px;
+    border-radius: 50px;
+    width: 90%;
+    background-color:#eff3f4;
+    height: 40px;
+    padding: 0px 10px 0px 15px;
+}
+input.widgets__search{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    padding-left: 15px;
+    padding-bottom: 1px;
+}
+input.widgets__search:focus{
+    outline: none;
+}

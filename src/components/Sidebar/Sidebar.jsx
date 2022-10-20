@@ -21,7 +21,7 @@ export default function Sidebar() {
         <SidebarButton onClick={toggleActive} active={selected == 'perfil' ? true : false} text={'Perfil'} icon={<i className="sb-btn-icon fa-regular fa-user"></i>} />
         <SidebarButton onClick={toggleActive} active={selected == 'mas opciones' ? true : false} text={'Mas opciones'} icon={<i className="sb-btn-icon fa-solid fa-gear"></i>} />
         <div className='d-flex align-content-center'>
-          <TweetBtn></TweetBtn>
+          <TweetBtn classBtn={'sb-tweet-btn'}></TweetBtn>
         </div>
       </div>
     </>
