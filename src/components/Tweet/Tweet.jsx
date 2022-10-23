@@ -1,7 +1,9 @@
 import React from 'react'
 import './Tweet.css'
 
-export default function Tweet({ userName, displayName, profileIcon, hour }) {
+
+export default function Tweet({text, userName, displayName, profileIcon, hour, image }) {
+    
     return (
         <div className='w-100 tweet row justify-content-center'>
             <div className='profile-icon-container'>
@@ -12,20 +14,23 @@ export default function Tweet({ userName, displayName, profileIcon, hour }) {
                     <h5>{displayName}</h5><p>@{userName}</p><p>- {hour}</p>
                 </div>
                 <div className="tweet__text">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti ipsa debitis rerum similique accusamus a, veritatis doloremque tempore qui</p>
+                    <p>{text}</p>
                 </div>
+                {image?(
+                    <div style={{backgroundImage:`url(${image})`}} className="tweet__img"/>
+                ):''}
                 <div className="w-100 tweet__footer d-flex">
                     <div>
-                        <i class="comment interaction-icon fa-regular fa-comment"></i>
+                        <i className="comment interaction-icon fa-regular fa-comment"></i>
                     </div>
                     <div>
-                        <i class="retweet interaction-icon fa-solid fa-retweet"></i>
+                        <i className="retweet interaction-icon fa-solid fa-retweet"></i>
                     </div>
                     <div>
-                        <i class="fav interaction-icon fa-regular fa-heart"></i>
+                        <i className="fav interaction-icon fa-regular fa-heart"></i>
                     </div>
                     <div>
-                        <i class="share interaction-icon fa-solid fa-arrow-up-from-bracket"></i>
+                        <i className="share interaction-icon fa-solid fa-arrow-up-from-bracket"></i>
                     </div>
                 </div>
             </div>

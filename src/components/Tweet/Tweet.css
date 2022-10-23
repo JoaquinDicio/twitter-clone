@@ -2,13 +2,24 @@ div.row.tweet{
     margin: 0;
 }
 div.tweet{
-    padding: 15px 8px 15px 10px;
+    padding: 20px 13px 20px 10px;
     border-bottom:1px solid rgb(230, 230, 230);
+}
+div.tweet__text p{
+    line-height: 1;
 }
 div.tweet__footer{
     margin-left: 5px;
     height: 20px;
     margin-bottom: 5px;
+}
+div.tweet__img{
+    height: 400px;
+    border-radius: 10px;
+    margin:20px 0px 30px 0px;
+    background-position:top;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 div.tweet__footer div{
     flex: .3;
@@ -44,8 +55,10 @@ div.tweet img.profile-icon{
 }
 .tweet__header h5{
     font-size: 1.1em;
+    margin-left: 0px;
+    margin-bottom: 3px;
 }
-.tweet__header h5, .tweet__header p{
+.tweet__header p{
     margin-bottom: 3px;
     margin-left: 5px;
 }

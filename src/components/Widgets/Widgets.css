@@ -1,14 +1,25 @@
 div.widgets{
-    background-color: blue;
     min-width:350px;
     width: 100%;
     flex: .4;
     height: 100vh;
+    overflow-y: scroll;
+    padding: 0px 30px;
+    border-left: 1px solid rgb(230, 230, 230);
+}
+div.widgets::-webkit-scrollbar{
+    display: none;
 }
 div.widgets__header{
-    height: 55px;
+    min-height: 55px;
     background-color: #ffff;
     width: 100%;
+    position: sticky;
+    top: 0;
+}
+div.widgets__twitter{
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 div.search-bar{
     padding-left: 10px;
