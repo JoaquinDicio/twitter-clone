@@ -3,7 +3,7 @@ import './Feed.css'
 import TweetBox from '../TweetBox/TweetBox.jsx'
 import Tweet from '../Tweet/Tweet'
 import db from '../../services/API'
-import { onSnapshot, collection, orderBy } from 'firebase/firestore'
+import { onSnapshot, collection, orderBy, query } from 'firebase/firestore'
 
 export default function Feed() {
   //states
@@ -11,11 +11,12 @@ export default function Feed() {
 
   //useffect
   useEffect(()=>{
-    onSnapshot(collection(db,'tweets'),orderBy('displayname'),(docs)=>{
+    onSnapshot(query(collection(db,'tweets'),orderBy('hour','desc')),(docs)=>{
       const arr=[]
       docs.forEach((doc)=>
       arr.push({...doc.data(),id:doc.id}))
       setTweets(arr)
+      console.log(arr)
     })
   },[])
 
@@ -28,7 +29,7 @@ export default function Feed() {
       <div className="tweets">
         {tweets?
         tweets.map((tweet) =>
-        <Tweet text={tweet.text} key={tweet.id} profileIcon={tweet.profileicon} userName={tweet.username} displayName={tweet.displayname} image={tweet.image} hour={'17h'} />
+        <Tweet text={tweet.text} key={tweet.id} profileIcon={tweet.profileicon} userName={tweet.username} displayName={tweet.displayname} image={tweet.image} hour={tweet.hour} />
       ): 'Loading...'} 
       </div>
 

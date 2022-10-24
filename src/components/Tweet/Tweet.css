@@ -25,11 +25,11 @@ div.tweet__footer div{
     flex: .3;
 }
 i.interaction-icon{
-    cursor: pointer;
     font-weight: light;
     color: #959595;
     padding: 5px;
     border-radius: 50px;
+    cursor: pointer;
 }
 i.share:hover,i.comment:hover{
     color:rgb(29, 155, 240);
@@ -43,7 +43,18 @@ i.retweet:hover{
     color:rgb(86, 202, 109);
     background-color:rgb(202, 233, 207);
 }
-
+i.retweet.retweted{
+    color:rgb(86, 202, 109);
+}
+i.fav.liked{
+    color: rgb(251, 60, 98);
+}
+p.interaction-indicator{
+    margin-bottom: 3px;
+    margin-left: 2px;
+    color: #959595;
+    font-size: 14px;
+}
 
 div.profile-icon-container{
     width: 65px;
