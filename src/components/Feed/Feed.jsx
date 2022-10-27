@@ -3,11 +3,13 @@ import './Feed.css'
 import TweetBox from '../TweetBox/TweetBox.jsx'
 import Tweet from '../Tweet/Tweet'
 import db from '../../services/API'
+import Modal from '../Modal/Modal'
 import { onSnapshot, collection, orderBy, query } from 'firebase/firestore'
 
 export default function Feed() {
   //states
   let [tweets, setTweets] = useState()
+  let [showModal,setShowModal]=useState(false)
 
   //useffect
   useEffect(()=>{
@@ -32,7 +34,10 @@ export default function Feed() {
         <Tweet text={tweet.text} key={tweet.id} profileIcon={tweet.profileicon} userName={tweet.username} displayName={tweet.displayname} image={tweet.image} hour={tweet.hour} />
       ): 'Loading...'} 
       </div>
-
+      {
+        showModal?<Modal/>:''
+      }
+      
     </div>
   )
 }
