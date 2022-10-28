@@ -1,48 +1,16 @@
-import { React, useState } from 'react'
+import { React, useContext } from 'react'
 import './Modal.css'
 import TweetBtn from '../TweetBtn/TweetBtn'
-import { setDoc, doc } from 'firebase/firestore'
-import db from '../../services/API'
-import { nanoid } from 'nanoid'
+import { MyContext } from '../../context/MyContextProvider'
 
 
 export default function Modal() {
-  //states
-  const [image, setImage] = useState(false)
-  const [imageURL, setImageURL] = useState('')
-  const [tweetTxt, setTweetTxt] = useState('')
-
-  //toggle the option to add an image url
-  function toggleImage() {
-    if (image) {
-      setImage(false)
-    } else {
-      setImage(true)
-    }
-  }
-
-  //tweet function: inserts a new tweet
-  async function handleTweet(e, text) {
-    e.preventDefault()
-    if (tweetTxt != '') {
-      await setDoc(doc(db, "tweets", nanoid(3)), {
-        displayname: "dichuu",
-        image: imageURL,
-        hour: new Date(),
-        profileicon: 'https://pbs.twimg.com/profile_images/1364057247186362369/acSYBHZI_400x400.jpg',
-        text: tweetTxt,
-        username: 'joacodicio',
-      })
-      setTweetTxt('')
-      setImageURL('')
-    }
-  }
-
+  const {toggleModal,setTweetTxt,tweetTxt,imageURL,image,handleTweet,setImageURL,toggleImage}=useContext(MyContext)
   return (
     <div className='modal__container'>
       <div className="modal__content bg-light">
         <div className="modal__header">
-          <i class=" close-icon fa-solid fa-xmark"></i>
+          <i onClick={()=>toggleModal()} className=" close-icon fa-solid fa-xmark"></i>
         </div>
         <div className="modal__form row">
           <div className="d-flex align-items-start justify-content-end col-2">

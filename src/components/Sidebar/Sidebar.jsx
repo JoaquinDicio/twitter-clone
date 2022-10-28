@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { MyContext } from '../../context/MyContextProvider'
 import SidebarButton from '../SidebarButton/SidebarButton'
 import TweetBtn from '../TweetBtn/TweetBtn'
 import './Sidebar.css'
 
 export default function Sidebar() {
   const [selected, setSelected] = useState('home')
-
+  const {toggleModal}=useContext(MyContext)
+//function to change tabs
   async function toggleActive(e) {
     await setSelected(e.target.innerText.toLowerCase())
   }
-
 
   return (
     <>
@@ -21,7 +22,7 @@ export default function Sidebar() {
         <SidebarButton onClick={toggleActive} active={selected == 'perfil' ? true : false} text={'Perfil'} icon={<i className="sb-btn-icon fa-regular fa-user"></i>} />
         <SidebarButton onClick={toggleActive} active={selected == 'mas opciones' ? true : false} text={'Mas opciones'} icon={<i className="sb-btn-icon fa-solid fa-gear"></i>} />
         <div className='d-flex align-content-center'>
-          <TweetBtn classBtn={'sb-tweet-btn'}></TweetBtn>
+          <TweetBtn onClick={toggleModal} classBtn={'sb-tweet-btn'}></TweetBtn>
         </div>
       </div>
     </>

@@ -1,41 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './TweetBox.css'
 import TweetBtn from '../TweetBtn/TweetBtn.jsx'
-import { Timestamp, setDoc, doc } from 'firebase/firestore'
-import db from '../../services/API'
-import { nanoid } from 'nanoid'
+import { MyContext } from '../../context/MyContextProvider'
 
 export default function TweetBox({ onTweet }) {
-  //states
-  const [image, setImage] = useState(false)
-  const [imageURL, setImageURL] = useState('')
-  const [tweetTxt, setTweetTxt] = useState('')
-
-  //tweet function: inserts a new tweet
-  async function handleTweet(e, text) {
-    e.preventDefault()
-    if (tweetTxt != '') {
-      await setDoc(doc(db, "tweets", nanoid(3)), {
-        displayname: "dichuu",
-        image: imageURL,
-        hour: new Date(),
-        profileicon: 'https://pbs.twimg.com/profile_images/1364057247186362369/acSYBHZI_400x400.jpg',
-        text: tweetTxt,
-        username: 'joacodicio',
-      })
-      setTweetTxt('')
-      setImageURL('')
-    }
-  }
-  //toggle the option to add an image url
-  function toggleImage() {
-    if (image) {
-      setImage(false)
-    } else {
-      setImage(true)
-    }
-  }
-
+  const {tweetTxt,setTweetTxt,toggleImage,image,setImageURL,imageURL,handleTweet}=useContext(MyContext)
   return (
     <div className='tweetbox'>
       <form className='tweetbox__form w-100 row' action="">

@@ -1,15 +1,16 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState, useEffect, useContext } from 'react'
 import './Feed.css'
 import TweetBox from '../TweetBox/TweetBox.jsx'
 import Tweet from '../Tweet/Tweet'
 import db from '../../services/API'
 import Modal from '../Modal/Modal'
 import { onSnapshot, collection, orderBy, query } from 'firebase/firestore'
+import { MyContext } from '../../context/MyContextProvider'
 
 export default function Feed() {
   //states
   let [tweets, setTweets] = useState()
-  let [showModal,setShowModal]=useState(false)
+  const {showModal}=useContext(MyContext)
 
   //useffect
   useEffect(()=>{
@@ -18,7 +19,6 @@ export default function Feed() {
       docs.forEach((doc)=>
       arr.push({...doc.data(),id:doc.id}))
       setTweets(arr)
-      console.log(arr)
     })
   },[])
 
@@ -36,7 +36,7 @@ export default function Feed() {
       </div>
       {
         showModal?<Modal/>:''
-      }
+      } 
       
     </div>
   )
