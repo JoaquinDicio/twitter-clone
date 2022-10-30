@@ -4,14 +4,14 @@ import TweetBox from '../TweetBox/TweetBox.jsx'
 import Tweet from '../Tweet/Tweet'
 import db from '../../services/API'
 import Modal from '../Modal/Modal'
+import ModalComment from '../ModalComment/ModalComment'
 import { onSnapshot, collection, orderBy, query } from 'firebase/firestore'
 import { MyContext } from '../../context/MyContextProvider'
 
 export default function Feed() {
   //states
   let [tweets, setTweets] = useState()
-  const {showModal}=useContext(MyContext)
-
+  const {showModal,showCommentModal}=useContext(MyContext)
   //useffect
   useEffect(()=>{
     onSnapshot(query(collection(db,'tweets'),orderBy('hour','desc')),(docs)=>{
@@ -36,7 +36,10 @@ export default function Feed() {
       </div>
       {
         showModal?<Modal/>:''
-      } 
+      }
+      {
+        showCommentModal?<ModalComment/>:''
+      }
       
     </div>
   )

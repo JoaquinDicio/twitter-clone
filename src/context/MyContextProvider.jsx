@@ -10,7 +10,6 @@ export default function MyContextProvider({ children }) {
     const [image, setImage] = useState(false)
     const [imageURL, setImageURL] = useState('')
     const [tweetTxt, setTweetTxt] = useState('')
-
     //tweet function: inserts a new tweet
     async function handleTweet(e, text) {
         e.preventDefault()
@@ -36,7 +35,7 @@ export default function MyContextProvider({ children }) {
         }
     }
     //function to display the modal
-    function toggleModal() {
+    function toggleModal(type) {
         if (showModal) {
             setShowModal(false)
         } else {
@@ -45,7 +44,7 @@ export default function MyContextProvider({ children }) {
     }
 
     return (
-        <MyContext.Provider value={{ toggleModal,showModal, setShowModal, toggleImage, handleTweet, image, setImage, tweetTxt, setTweetTxt }}>
+        <MyContext.Provider value={{ toggleModal, showModal, setShowModal, toggleImage, handleTweet, image, setImage, tweetTxt, setTweetTxt }}>
             {children}
         </MyContext.Provider>
     )

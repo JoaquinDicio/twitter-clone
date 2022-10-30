@@ -1,6 +1,6 @@
-import {React, useState} from 'react'
+import {React, useState,useContext} from 'react'
 import './Tweet.css'
-
+import ModalComment from '../ModalComment/ModalComment'
 
 export default function Tweet({text, userName, displayName, profileIcon, hour, image }) {
     //states
@@ -8,14 +8,15 @@ export default function Tweet({text, userName, displayName, profileIcon, hour, i
     const [isRetweted,setIsRetweted]=useState(false)
     const [likes,setLikes]=useState(getRandomInt)
     const [retweets,setRetweets]=useState(getRandomInt)
-    const[comments,setComments]=useState([])
+    const [commentsArr,setCommentsArr]=useState([])
+    const [showCommentModal,setShowCommentModal]=useState(false)
     //generate random likes and retweets
     function getRandomInt(min, max) {
-        min = 5;
+        min = 0;
         max = 15;
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    //handle like
+    //handle interactions such as like and retweet
     function handleInteraction(type){
         if(type=='like'){
             if (!isLiked){
@@ -35,6 +36,15 @@ export default function Tweet({text, userName, displayName, profileIcon, hour, i
             }
         }
     }
+    //toggle comment modal (shows or hide the modal for comments)
+    function toggleCommentModal(){
+        if (showCommentModal) {
+            setShowCommentModal(false)
+        } else {
+            setShowCommentModal(true)
+        }
+    }
+
     return (
         <div className='w-100 tweet row justify-content-center'>
             <div className='profile-icon-container'>
@@ -52,7 +62,7 @@ export default function Tweet({text, userName, displayName, profileIcon, hour, i
                 ):''}
                 <div className="w-100 tweet__footer d-flex">
                     <div className='d-flex align-items-center'>
-                        <i className="comment interaction-icon fa-regular fa-comment"></i>
+                        <i onClick={()=>toggleCommentModal()} className="comment interaction-icon fa-regular fa-comment"></i>
                     </div>
                     <div className='d-flex align-items-center'>
                         <i onClick={()=>handleInteraction('retweet')} className={isRetweted?"retweted retweet interaction-icon fa-solid fa-retweet":"retweet interaction-icon fa-solid fa-retweet"}></i>
@@ -66,6 +76,13 @@ export default function Tweet({text, userName, displayName, profileIcon, hour, i
                         <i className="share interaction-icon fa-solid fa-arrow-up-from-bracket"></i>
                     </div>
                 </div>
+                    {showCommentModal?<ModalComment setCommentsArr={setCommentsArr} commentsArr={commentsArr} toggle={toggleCommentModal}/>:''}
+            </div>
+            <div className="comments">
+                {commentsArr.length>0?
+                commentsArr.map((comment)=><p>Comentario</p>)
+                :''  
+            }
             </div>
         </div>
     )
