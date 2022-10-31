@@ -24,6 +24,7 @@ export default function MyContextProvider({ children }) {
             })
             setTweetTxt('')
             setImageURL('')
+            toggleModal()
         }
     }
     //toggle the option to add an image url
@@ -44,7 +45,7 @@ export default function MyContextProvider({ children }) {
     }
 
     return (
-        <MyContext.Provider value={{ toggleModal, showModal, setShowModal, toggleImage, handleTweet, image, setImage, tweetTxt, setTweetTxt }}>
+        <MyContext.Provider value={{ toggleModal, showModal, setShowModal, toggleImage, handleTweet, image,imageURL, setImageURL, tweetTxt, setTweetTxt }}>
             {children}
         </MyContext.Provider>
     )

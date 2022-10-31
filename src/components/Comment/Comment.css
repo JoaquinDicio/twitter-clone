@@ -1,0 +1,12 @@
+div.comment{
+    padding: 20px 13px 0px 10px;
+}
+div.comment__content{
+    padding-top: 20px;
+}
+div.comment__line{
+    height:20px;
+    margin:0 auto;
+    width: 3px;
+    background-color:rgb(186, 186, 186);
+}

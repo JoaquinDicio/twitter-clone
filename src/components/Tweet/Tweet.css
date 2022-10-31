@@ -6,7 +6,7 @@ div.tweet{
     border-bottom:1px solid rgb(230, 230, 230);
 }
 div.tweet__text p{
-    line-height: 1;
+    line-height: 1.1;
 }
 div.tweet__footer{
     margin-left: 5px;

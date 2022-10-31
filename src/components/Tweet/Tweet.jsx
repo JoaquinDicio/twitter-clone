@@ -1,8 +1,9 @@
-import {React, useState,useContext} from 'react'
+import {React, useState} from 'react'
 import './Tweet.css'
 import ModalComment from '../ModalComment/ModalComment'
+import Comment from '../Comment/Comment'
 
-export default function Tweet({text, userName, displayName, profileIcon, hour, image }) {
+export default function Tweet({text, userName, displayName, profileIcon, image }) {
     //states
     const [isLiked,setIsLiked]=useState(false)
     const [isRetweted,setIsRetweted]=useState(false)
@@ -78,10 +79,10 @@ export default function Tweet({text, userName, displayName, profileIcon, hour, i
                 </div>
                     {showCommentModal?<ModalComment setCommentsArr={setCommentsArr} commentsArr={commentsArr} toggle={toggleCommentModal}/>:''}
             </div>
-            <div className="comments">
+            <div className="tweet__comments-section">
                 {commentsArr.length>0?
-                commentsArr.map((comment)=><p>Comentario</p>)
-                :''  
+                commentsArr.map((comment)=><Comment profileIcon={profileIcon} displayName={comment.displayName} userName={comment.userName} txt={comment.txt} image={comment.image} /> )
+                :''
             }
             </div>
         </div>

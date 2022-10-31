@@ -4,16 +4,23 @@ import TweetBtn from '../TweetBtn/TweetBtn'
 import { MyContext } from '../../context/MyContextProvider'
 
 
-export default function ModalComment({toggle,setCommentsArr,commentsArr}) {
-  const {setTweetTxt,tweetTxt,imageURL,image,setImageURL,toggleImage}=useContext(MyContext)
-  
+export default function ModalComment({ toggle, setCommentsArr, commentsArr }) {
+  const { setTweetTxt, tweetTxt, imageURL, image, setImageURL, toggleImage } = useContext(MyContext)
+
   //function that hanldes the comment send
-  function handleComment(){
-    setCommentsArr([...commentsArr,{txt:tweetTxt}])
+  async function handleComment() {
+    setCommentsArr([...commentsArr, { 
+      txt: tweetTxt,
+      image:imageURL,
+      displayName: 'dichuu',
+      userName: 'joacodicio',
+      profileIcon: 'https://pbs.twimg.com/profile_images/1364057247186362369/acSYBHZI_400x400.jpg',
+     }])
     setTweetTxt('')
     setImageURL('')
+    toggle()
   }
-  
+
   return (
     <div className='modal__container'>
       <div className="modal__content bg-light">
@@ -25,7 +32,7 @@ export default function ModalComment({toggle,setCommentsArr,commentsArr}) {
             <img className='modal__user-img' src="https://pbs.twimg.com/profile_images/1364057247186362369/acSYBHZI_400x400.jpg" alt="my profile" />
           </div>
           <div className="col-10">
-            <textarea onChange={(e)=>setTweetTxt(e.target.value)} className='modal__input' placeholder={"Insert comment here"} value={tweetTxt} rows="5"></textarea>
+            <textarea onChange={(e) => setTweetTxt(e.target.value)} className='modal__input' placeholder={"Insert comment here"} value={tweetTxt} rows="5"></textarea>
           </div>
           <div className="d-flex align-items-center justify-content-end modal__actions">
             <div className='d-flex justify-content-between'>
