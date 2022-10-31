@@ -24,7 +24,9 @@ export default function MyContextProvider({ children }) {
             })
             setTweetTxt('')
             setImageURL('')
-            toggleModal()
+            if(showModal){
+                toggleModal()
+            }
         }
     }
     //toggle the option to add an image url
